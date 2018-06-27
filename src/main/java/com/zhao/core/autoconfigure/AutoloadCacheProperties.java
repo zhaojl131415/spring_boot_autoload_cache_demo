@@ -1,4 +1,4 @@
-package com.zhao.demo.config;
+package com.zhao.core.autoconfigure;
 
 import com.jarvis.cache.to.AutoLoadConfig;
 import lombok.Data;

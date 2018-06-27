@@ -1,14 +1,14 @@
-package com.zhao.demo.config;
+package com.zhao.core.autoconfigure;
 
 import com.jarvis.cache.ICacheManager;
 import com.jarvis.cache.redis.JedisClusterCacheManager;
+import com.jarvis.cache.redis.SpringJedisCacheManager;
 import com.jarvis.cache.script.AbstractScriptParser;
 import com.jarvis.cache.script.OgnlParser;
 import com.jarvis.cache.script.SpringELParser;
 import com.jarvis.cache.serializer.HessianSerializer;
 import com.jarvis.cache.serializer.ISerializer;
 import com.jarvis.cache.serializer.JdkSerializer;
-import com.zhao.demo.redis.SpringJedisCacheManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

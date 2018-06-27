@@ -1,4 +1,4 @@
-package com.zhao.demo.redis;
+package com.zhao.core.redis;
 
 import com.jarvis.cache.redis.AbstractRedisCacheManager;
 import com.jarvis.cache.redis.IRedis;

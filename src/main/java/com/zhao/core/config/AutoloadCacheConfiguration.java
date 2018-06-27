@@ -1,8 +1,9 @@
-package com.zhao.demo.config;
+package com.zhao.core.config;
 
 import com.jarvis.cache.ICacheManager;
 import com.jarvis.cache.clone.ICloner;
 import com.jarvis.cache.map.MapCacheManager;
+import com.zhao.core.autoconfigure.AutoloadCacheProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
