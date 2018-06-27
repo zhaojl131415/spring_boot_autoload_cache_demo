@@ -1,8 +1,8 @@
 package com.zhao.demo.mapper;
 
-//import com.jarvis.cache.annotation.Cache;
-//import com.jarvis.cache.annotation.CacheDelete;
-//import com.jarvis.cache.annotation.CacheDeleteKey;
+import com.jarvis.cache.annotation.Cache;
+import com.jarvis.cache.annotation.CacheDelete;
+import com.jarvis.cache.annotation.CacheDeleteKey;
 import com.zhao.demo.entity.UserBean;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface UserMapper {
     }
 
 
-//    @Cache(expire = 3600, expireExpression = "null == #retVal ? 600: 3600", key = "#target.getCacheName() +'-byid-' + #args[0]")
+    @Cache(expire = 3600, expireExpression = "null == #retVal ? 600: 3600", key = "#target.getCacheName() +'-byid-' + #args[0]")
     UserBean getById(Long id);
 
 
@@ -31,7 +31,7 @@ public interface UserMapper {
      * @param id
      * @return
      */
-//    @Cache(expire = 3600, expireExpression = "null == #retVal ? 600: 3600", key = "'user-byid-' + #args[0]")
+    @Cache(expire = 3600, expireExpression = "null == #retVal ? 600: 3600", key = "'user-byid-' + #args[0]")
     UserBean getUserById(Long id);
     
     /**
@@ -39,7 +39,7 @@ public interface UserMapper {
      * 测试 autoload = true
      * @return
      */
-//    @Cache(expire = 3600, key = "user-all", autoload = true)
+    @Cache(expire = 3600, key = "user-all", autoload = true)
     List<UserBean> allUsers();
     
     /**
@@ -47,7 +47,7 @@ public interface UserMapper {
      * 测试 autoload = true
      * @return
      */
-//    @Cache(expire = 1200, key = "'user-list-' + @@hash(#args[0])", autoload = true)
+    @Cache(expire = 1200, key = "'user-list-' + @@hash(#args[0])", autoload = true)
     List<UserBean> listByCondition(UserBean userBean);
 
     /**
@@ -56,7 +56,7 @@ public interface UserMapper {
      * @param name
      * @return
      */
-//    @Cache(expire = 1200, expireExpression = "null == #retVal ? 120: 1200", key = "'userid-byname-' + #args[0]")
+    @Cache(expire = 1200, expireExpression = "null == #retVal ? 120: 1200", key = "'userid-byname-' + #args[0]")
     Long getUserIdByName(String name);
 
     /**
@@ -72,7 +72,7 @@ public interface UserMapper {
      * 
      * @param user
      */
-//    @CacheDelete({ @CacheDeleteKey(value = "'userid-byname-' + #args[0].name") })
+    @CacheDelete({ @CacheDeleteKey(value = "'userid-byname-' + #args[0].name") })
     int addUser(UserBean user);
 
     /**
@@ -81,13 +81,13 @@ public interface UserMapper {
      * @param user
      * @return
      */
-//    @CacheDelete({ @CacheDeleteKey(value = "'user-byid-' + #args[0].id", condition = "#retVal > 0") })
+    @CacheDelete({ @CacheDeleteKey(value = "'user-byid-' + #args[0].id", condition = "#retVal > 0") })
     int updateUser(UserBean user);
 
     /**
      * 根据用户id删除用户记录
      **/
-//    @CacheDelete({ @CacheDeleteKey(value = "'user-byid-' + #args[0]", condition = "#retVal > 0") })
+    @CacheDelete({ @CacheDeleteKey(value = "'user-byid-' + #args[0]", condition = "#retVal > 0") })
     int deleteUserById(Long id);
 
 }

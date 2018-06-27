@@ -1,7 +1,7 @@
 package com.zhao.demo.service.impl;
 
-//import com.jarvis.cache.annotation.Cache;
-//import com.jarvis.cache.annotation.CacheDeleteTransactional;
+import com.jarvis.cache.annotation.Cache;
+import com.jarvis.cache.annotation.CacheDeleteTransactional;
 import com.zhao.demo.entity.UserBean;
 import com.zhao.demo.mapper.UserMapper;
 import com.zhao.demo.service.UserService;
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-//    @Cache(expire = 600, key = "'userid-list-' + @@hash(#args[0])")
+    @Cache(expire = 600, key = "'userid-list-' + @@hash(#args[0])")
     public List<UserBean> listByCondition(UserBean user) {
         List<Long> ids = userMapper.listIdsByCondition(user);
         List<UserBean> list = null;
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-//    @CacheDeleteTransactional
+    @CacheDeleteTransactional
     @Transactional(rollbackFor = Throwable.class)
     public Long register(UserBean user) {
         Long userId = userMapper.getUserIdByName(user.getName());
@@ -71,14 +71,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-//    @CacheDeleteTransactional
+    @CacheDeleteTransactional
     @Transactional(rollbackFor = Throwable.class)
     public void updateUser(UserBean user) {
         userMapper.updateUser(user);
     }
 
     @Override
-//    @CacheDeleteTransactional
+    @CacheDeleteTransactional
     @Transactional(rollbackFor = Throwable.class)
     public void deleteUserById(Long userId) {
         userMapper.deleteUserById(userId);
